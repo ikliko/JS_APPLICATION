@@ -49,24 +49,6 @@ async function getInfo() {
 
     try {
         const data = await getBusStopData(stopId);
-        if (!data) {
-            throw new Error('No data');
-        }
-
-        if (!data.name) {
-            throw new Error('No name');
-        }
-
-        if (!data.buses) {
-            Object.keys(data.buses)
-                .forEach(k => {
-                    if (isNaN(k) || isNaN(data.buses[k])) {
-                        throw new Error('Invalid');
-                    }
-                })
-
-            throw new Error('No buses');
-        }
 
         setBusStopName(data.name);
         setBusesList(data.buses);
