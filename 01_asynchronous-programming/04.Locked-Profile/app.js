@@ -20,7 +20,6 @@ function createElement({type, attr, content}) {
 }
 
 function renderProfile({_id, username, email, age, index}) {
-    // <div className="profile">
     const profile = createElement({
         type: 'profile',
         attr: {
@@ -28,8 +27,6 @@ function renderProfile({_id, username, email, age, index}) {
         },
     });
 
-    // profile photo
-    //     <img src="iconProfile2.png" className="userIcon"/>
     profile.appendChild(createElement({
         type: 'img',
         attr: {
@@ -38,7 +35,6 @@ function renderProfile({_id, username, email, age, index}) {
         },
     }));
 
-    //     <label>Lock</label>
     profile.appendChild(createElement({
         type: 'label',
         attr: {
@@ -46,7 +42,6 @@ function renderProfile({_id, username, email, age, index}) {
         }
     }));
 
-    //     <input type="radio" name="user1Locked" value="lock" checked>
     const lockInput = createElement({
         type: 'input',
         attr: {
@@ -59,7 +54,6 @@ function renderProfile({_id, username, email, age, index}) {
 
     profile.appendChild(lockInput);
 
-    //     <label>Unlock</label>
     profile.appendChild(createElement({
         type: 'label',
         attr: {
@@ -67,7 +61,6 @@ function renderProfile({_id, username, email, age, index}) {
         }
     }));
 
-    //     <input type="radio" name="user1Locked" value="unlock">
     profile.appendChild(createElement({
         type: 'input',
         attr: {
@@ -77,17 +70,14 @@ function renderProfile({_id, username, email, age, index}) {
         }
     }));
 
-    // br
     profile.appendChild(createElement({
         type: 'br',
     }));
 
-    //     <hr>
     profile.appendChild(createElement({
         type: 'hr',
     }));
 
-    //     <label>Username</label>
     profile.appendChild(createElement({
         type: 'label',
         attr: {
@@ -95,7 +85,6 @@ function renderProfile({_id, username, email, age, index}) {
         }
     }));
 
-    //     <input type="text" name="user1Username" value="" disabled readOnly/>
     profile.appendChild(createElement({
         type: 'input',
         attr: {
@@ -107,7 +96,6 @@ function renderProfile({_id, username, email, age, index}) {
         }
     }));
 
-//     <div className="user1Username">
     const hiddenFields = createElement({
         type: 'div',
         attr: {
@@ -117,12 +105,10 @@ function renderProfile({_id, username, email, age, index}) {
 
     hiddenFields.style.display = 'none';
 
-//         <hr>
     hiddenFields.appendChild(createElement({
         type: 'hr'
     }));
 
-//         <label>Email:</label>
     hiddenFields.appendChild(createElement({
         type: 'label',
         attr: {
@@ -130,7 +116,6 @@ function renderProfile({_id, username, email, age, index}) {
         },
     }));
 
-//         <input type="email" name="user1Email" value="" disabled readOnly/>
     hiddenFields.appendChild(createElement({
         type: 'input',
         attr: {
@@ -142,7 +127,6 @@ function renderProfile({_id, username, email, age, index}) {
         },
     }));
 
-//         <label>Age:</label>
     hiddenFields.appendChild(createElement({
         type: 'label',
         attr: {
@@ -150,7 +134,6 @@ function renderProfile({_id, username, email, age, index}) {
         },
     }));
 
-//         <input type="text" name="user1Age" value="" disabled readOnly/>
     hiddenFields.appendChild(createElement({
         type: 'input',
         attr: {
@@ -162,9 +145,6 @@ function renderProfile({_id, username, email, age, index}) {
         }
     }));
 
-    // profile.appendChild(hiddenFields);
-
-    //     <button>Show more</button>
     const showMoreBtn = createElement({
         type: 'button',
         attr: {
@@ -216,5 +196,4 @@ async function lockedProfile() {
             index: i+1,
         }))
         .forEach(e => main.appendChild(e));
-
 }

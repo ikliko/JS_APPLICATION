@@ -146,9 +146,9 @@ function attachEvents() {
 
     submit.addEventListener('click', async function () {
         try {
-             currentElement.querySelector('.forecasts').remove();
-             upcomingElement.querySelector('.forecast-info').remove();
-        }catch (e) {
+            currentElement.querySelector('.forecasts').remove();
+            upcomingElement.querySelector('.forecast-info').remove();
+        } catch (e) {
         }
 
         const city = (await makeRequest('locations'))
@@ -162,11 +162,15 @@ function attachEvents() {
 
         try {
             const {code} = city;
-            const todayWeather = await makeRequest(`today/${code}`);
-            renderTodayWeather(todayWeather);
+            makeRequest(`today/${code}`)
+                .then(todayWeather => {
+                    renderTodayWeather(todayWeather);
+                }).catch(showError);
 
-            const upcomingWeather = await makeRequest(`upcoming/${code}`);
-            renderUpcomingWeather(upcomingWeather);
+            makeRequest(`upcoming/${code}`)
+                .then(upcomingWeather => {
+                    renderUpcomingWeather(upcomingWeather);
+                }).catch(showError);
 
             forecastElement.style.display = 'block';
         } catch (e) {
